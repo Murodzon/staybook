@@ -1,9 +1,11 @@
-import { Link, Outlet } from 'react-router';
+import { Link, Outlet, useLocation } from 'react-router';
 import { usePreferences } from '../lib/preferences';
 import { HeaderControls } from './HeaderControls';
+import { Landscape } from './Landscape';
 
 export function Layout() {
   const { t } = usePreferences();
+  const isHome = useLocation().pathname === '/';
   return (
     <div className="flex min-h-screen flex-col">
       <header className="bg-brand-900 text-white">
@@ -20,6 +22,7 @@ export function Layout() {
       <main className="flex-1">
         <Outlet />
       </main>
+      {!isHome && <Landscape className="land-page h-44 sm:h-64" />}
       <footer className="border-t border-slate-200 bg-white dark:border-white/10 dark:bg-[#101c1b]">
         <div className="mx-auto flex max-w-6xl flex-wrap justify-between gap-2 px-4 py-6 text-sm text-slate-500 sm:px-6 dark:text-slate-400">
           <span className="font-bold text-ink dark:text-white">StayBook</span>

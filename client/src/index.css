@@ -26,6 +26,45 @@ html.dark {
   color-scheme: dark;
 }
 
+/* Фон с кыргызским орнаментом */
+body {
+  background-image: url("/ornament.svg");
+}
+
+/* Цвета пейзажа: по умолчанию — на тёмно-зелёном фоне первого экрана */
+.land-hero {
+  --land-far: #2b7a72;
+  --land-snow: #e8f3f1;
+  --land-mid: #145650;
+  --land-ground: #07302f;
+  --land-lake: #3fa7b5;
+  --land-fir: #0f4a40;
+  --land-yurt: #f3ead7;
+  --land-trim: #b9382f;
+}
+/* Светлые страницы */
+.land-page {
+  --land-far: #cfe3df;
+  --land-snow: #ffffff;
+  --land-mid: #a5ccc4;
+  --land-ground: #6fa89c;
+  --land-lake: #8fd0da;
+  --land-fir: #2f6f60;
+  --land-yurt: #fbf5e8;
+  --land-trim: #b9382f;
+}
+.dark .land-hero,
+.dark .land-page {
+  --land-far: #173f3c;
+  --land-snow: #8fb3ae;
+  --land-mid: #0f302e;
+  --land-ground: #081e1d;
+  --land-lake: #1d5560;
+  --land-fir: #1a4a3f;
+  --land-yurt: #cfc5ae;
+  --land-trim: #962f28;
+}
+
 :focus-visible {
   outline: 3px solid var(--color-sun);
   outline-offset: 2px;

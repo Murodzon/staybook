@@ -1,7 +1,8 @@
 import { useNavigate } from 'react-router';
 import { Icon, type IconName } from '../components/Icon';
-import { Mountains } from '../components/Mountains';
+import { Landscape } from '../components/Landscape';
 import { SearchForm } from '../components/SearchForm';
+import { TundukSun } from '../components/TundukSun';
 import type { TextKey } from '../lib/i18n';
 import { usePreferences } from '../lib/preferences';
 
@@ -16,9 +17,9 @@ export function SearchPage() {
   const { t } = usePreferences();
   return (
     <>
-      <section className="relative overflow-hidden bg-linear-to-b from-brand-900 via-brand-700 to-brand-600 text-white dark:via-[#072524] dark:to-[#0a3a36]">
-        <Mountains />
-        <div aria-hidden="true" className="absolute top-16 right-[14%] hidden size-24 rounded-full bg-sun shadow-[0_0_80px_20px_rgb(246_180_75/0.35)] md:block" />
+      <section className="land-hero relative overflow-hidden bg-linear-to-b from-brand-900 via-brand-700 to-brand-600 text-white dark:via-[#072524] dark:to-[#0a3a36]">
+        <Landscape className="absolute inset-x-0 bottom-0 h-64 sm:h-80" />
+        <TundukSun className="absolute top-8 right-[10%] hidden size-52 drop-shadow-[0_0_40px_rgb(246_180_75/0.35)] md:block" />
         <div className="relative mx-auto max-w-6xl px-4 pt-12 pb-32 sm:px-6 sm:pt-20 sm:pb-56">
           <h1 className="max-w-2xl text-4xl leading-tight font-extrabold tracking-tight text-balance sm:text-5xl">
             {t('heroTitle')}
