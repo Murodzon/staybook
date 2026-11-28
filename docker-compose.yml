@@ -1,0 +1,18 @@
+# Только база данных для локальной разработки.
+# Порт 5436 на хосте, чтобы не конфликтовать с другими PostgreSQL на 5432.
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: staybook
+    ports: ["127.0.0.1:5436:5432"]
+    volumes: [pgdata:/var/lib/postgresql/data]
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres", "-d", "staybook"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+volumes:
+  pgdata:
