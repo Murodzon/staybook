@@ -1,1 +1,22 @@
 @import "tailwindcss";
+
+@theme {
+  --font-sans: "Manrope Variable", ui-sans-serif, system-ui, sans-serif;
+  --color-brand-50: #eef8f6;
+  --color-brand-100: #d5eee9;
+  --color-brand-600: #0f766e;
+  --color-brand-700: #0c5f59;
+  --color-brand-900: #07302f;
+  --color-ink: #10231f;
+  --color-sun: #f6b44b;
+  --color-sun-hover: #eda32f;
+}
+
+body {
+  @apply bg-[#f6f7f5] text-ink antialiased;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-sun);
+  outline-offset: 2px;
+}

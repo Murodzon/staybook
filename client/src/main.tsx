@@ -5,6 +5,7 @@ import { Layout } from './components/Layout';
 import { NotFoundPage } from './pages/NotFoundPage';
 import { ResultsPage } from './pages/ResultsPage';
 import { SearchPage } from './pages/SearchPage';
+import '@fontsource-variable/manrope';
 import './index.css';
 
 createRoot(document.getElementById('root')!).render(

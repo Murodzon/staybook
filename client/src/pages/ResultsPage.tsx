@@ -1,24 +1,38 @@
 import { Link, useSearchParams } from 'react-router';
+import { Icon, type IconName } from '../components/Icon';
+import { formatDate } from '../lib/dates';
 
 export function ResultsPage() {
   const [params] = useSearchParams();
+  const chips: { icon: IconName; text: string }[] = [
+    { icon: 'calendar', text: `${formatDate(params.get('checkIn'))} — ${formatDate(params.get('checkOut'))}` },
+    { icon: 'users', text: `Гостей: ${params.get('guests') ?? '—'}` },
+  ];
+
   return (
-    <>
-      <h1 className="mb-4 text-2xl font-bold">Результаты поиска</h1>
-      <dl className="mb-6 grid grid-cols-2 gap-2 rounded-2xl bg-white p-5 shadow-sm">
-        <dt className="text-slate-600">Город</dt>
-        <dd className="break-words">{params.get('city')}</dd>
-        <dt className="text-slate-600">Заезд</dt>
-        <dd>{params.get('checkIn')}</dd>
-        <dt className="text-slate-600">Выезд</dt>
-        <dd>{params.get('checkOut')}</dd>
-        <dt className="text-slate-600">Гостей</dt>
-        <dd>{params.get('guests')}</dd>
-      </dl>
-      <p className="mb-4 text-slate-600">Список отелей появится на следующем шаге.</p>
-      <Link to="/" className="inline-flex min-h-11 items-center font-semibold text-teal-800 underline">
+    <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6">
+      <Link to="/" className="inline-flex min-h-11 items-center gap-2 font-bold text-brand-700 hover:underline">
+        <Icon name="arrowLeft" />
         Новый поиск
       </Link>
-    </>
+      <h1 className="mt-2 text-3xl font-extrabold tracking-tight break-words">
+        Отели: {params.get('city') ?? '—'}
+      </h1>
+      <ul className="mt-4 flex flex-wrap gap-2">
+        {chips.map(({ icon, text }) => (
+          <li key={icon} className="flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold">
+            <Icon name={icon} className="size-4 text-brand-600" />
+            {text}
+          </li>
+        ))}
+      </ul>
+      <div className="mt-8 rounded-2xl border border-dashed border-slate-300 bg-white px-6 py-16 text-center">
+        <span className="mx-auto mb-4 grid size-14 place-items-center rounded-2xl bg-brand-50 text-brand-600">
+          <Icon name="search" className="size-7" />
+        </span>
+        <p className="text-lg font-extrabold">Список отелей ещё в разработке</p>
+        <p className="mt-1 text-slate-600">Он появится на следующем шаге.</p>
+      </div>
+    </div>
   );
 }

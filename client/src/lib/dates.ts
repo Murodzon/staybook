@@ -16,3 +16,9 @@ export const addDays = (date: string, days: number): string =>
 
 export const nightsBetween = (checkIn: string, checkOut: string): number =>
   Math.round((toUtc(checkOut) - toUtc(checkIn)) / 86_400_000);
+
+// «5 декабря 2026 г.»; для пустой или неверной даты из адреса — «—».
+export const formatDate = (date: string | null): string =>
+  date && !Number.isNaN(toUtc(date))
+    ? new Intl.DateTimeFormat('ru-RU', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(toUtc(date))
+    : '—';
