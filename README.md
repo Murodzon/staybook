@@ -16,6 +16,18 @@ npm run dev
 
 Проверка: http://localhost:3000/api/health
 
+## Фронтенд
+
+В другом окне терминала, из папки проекта:
+
+```powershell
+cd client
+npm install
+npm run dev
+```
+
+Сайт: http://localhost:5180. План разработки: [PLAN.md](PLAN.md).
+
 ## Проверки
 
 ```powershell
