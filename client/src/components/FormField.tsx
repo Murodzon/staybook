@@ -10,10 +10,10 @@ export const FormField = forwardRef<HTMLInputElement, Props>(function FormField(
   const errorId = `${name}-error`;
   return (
     <div className="flex min-w-0 flex-col gap-1">
-      <label className="group flex cursor-text flex-col rounded-xl border border-slate-200 bg-white px-3.5 pt-2 pb-1 transition focus-within:border-brand-600 focus-within:ring-4 focus-within:ring-brand-100 has-aria-invalid:border-red-500">
-        <span className="text-xs font-bold tracking-wide text-slate-500 uppercase">{label}</span>
+      <label className="group flex cursor-text flex-col rounded-xl border border-slate-200 bg-white px-3.5 dark:border-white/15 dark:bg-white/5 dark:focus-within:ring-brand-600/40 pt-2 pb-1 transition focus-within:border-brand-600 focus-within:ring-4 focus-within:ring-brand-100 has-aria-invalid:border-red-500">
+        <span className="text-xs font-bold tracking-wide text-slate-500 uppercase dark:text-slate-400">{label}</span>
         <span className="flex items-center gap-2">
-          <Icon name={icon} className="size-5 text-brand-600" />
+          <Icon name={icon} className="size-5 text-brand-600 dark:text-teal-300" />
           <input
             {...input}
             ref={ref}
@@ -25,7 +25,7 @@ export const FormField = forwardRef<HTMLInputElement, Props>(function FormField(
         </span>
       </label>
       {error && (
-        <span id={errorId} className="px-1 text-sm font-medium text-red-700">
+        <span id={errorId} className="px-1 text-sm font-medium text-red-700 dark:text-red-400">
           {error}
         </span>
       )}

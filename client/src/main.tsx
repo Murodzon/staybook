@@ -2,6 +2,7 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Route, Routes } from 'react-router';
 import { Layout } from './components/Layout';
+import { PreferencesProvider } from './lib/preferences';
 import { NotFoundPage } from './pages/NotFoundPage';
 import { ResultsPage } from './pages/ResultsPage';
 import { SearchPage } from './pages/SearchPage';
@@ -10,6 +11,7 @@ import './index.css';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
+    <PreferencesProvider>
     <BrowserRouter>
       <Routes>
         <Route element={<Layout />}>
@@ -19,5 +21,6 @@ createRoot(document.getElementById('root')!).render(
         </Route>
       </Routes>
     </BrowserRouter>
+    </PreferencesProvider>
   </StrictMode>,
 );

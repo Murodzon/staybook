@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Тёмная тема включается классом .dark на <html>. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --font-sans: "Manrope Variable", ui-sans-serif, system-ui, sans-serif;
   --color-brand-50: #eef8f6;
@@ -13,7 +16,14 @@
 }
 
 body {
-  @apply bg-[#f6f7f5] text-ink antialiased;
+  @apply bg-[#f6f7f5] text-ink antialiased dark:bg-[#0b1413] dark:text-slate-100;
+}
+
+html {
+  color-scheme: light;
+}
+html.dark {
+  color-scheme: dark;
 }
 
 :focus-visible {
